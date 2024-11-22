@@ -15,7 +15,7 @@ namespace Taligado.Seed
         public void Seed()
         {
             // Empresas
-            if (_context.Empresas.Count() == 0)
+            if (_context.Empresas.Count() == 0 || _context.Empresas.Count(e => e.CNPJ == "11111111111111" || e.CNPJ == "22222222222222") == 0)
             {
                 _context.Empresas.AddRange(new List<Empresa>
                 {
@@ -25,9 +25,11 @@ namespace Taligado.Seed
                 _context.SaveChanges();
             }
 
+
+
             // Recuperar IDs das Empresas
-            var empresaA = _context.Empresas.First(e => e.CNPJ == "11111111111111");
-            var empresaB = _context.Empresas.First(e => e.CNPJ == "22222222222222");
+            var empresaA = _context.Empresas.FirstOrDefault(e => e.CNPJ == "11111111111111");
+            var empresaB = _context.Empresas.FirstOrDefault(e => e.CNPJ == "22222222222222");
 
             // Endereços
             if (_context.Enderecos.Count() == 0)
@@ -56,8 +58,8 @@ namespace Taligado.Seed
             }
 
             // Recuperar IDs das Filiais
-            var filial1 = _context.Filiais.First(f => f.CNPJ_Filial == "33333333333333");
-            var filial2 = _context.Filiais.First(f => f.CNPJ_Filial == "44444444444444");
+            var filial1 = _context.Filiais.FirstOrDefault(f => f.CNPJ_Filial == "33333333333333");
+            var filial2 = _context.Filiais.FirstOrDefault(f => f.CNPJ_Filial == "44444444444444");
 
             // Dispositivos
             if (_context.Dispositivos.Count() == 0)
