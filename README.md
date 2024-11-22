@@ -39,6 +39,58 @@ O banco de dados foi modelado seguindo as normas de normalização até a 3ª Fo
 ### Diagrama lógico
 ![image](https://github.com/user-attachments/assets/abd358ba-dbe7-4e56-a2c3-11233dc429f5)
 
+### Endpoints no postman
+[TáLigado API.postman_collection.json](https://github.com/user-attachments/files/17868716/TaLigado.API.postman_collection.json)
+
+
+## Passo a Passo
+
+
+### Clone o repositório:
+
+```bash
+git clone https://github.com/charlenefialho/taligado-dotnet-api.git
+cd lookbook-dotnet-api
+```
+
+Instale as dependências: Execute o comando para restaurar os pacotes do .NET:
+
+```bash
+dotnet restore
+```
+
+
+### Configurar a Conexão com o Banco de Dados:
+
+Atualize a string de conexão para o banco de dados Oracle no arquivo `appsettings.json`:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "User Id=seu_usuario;Password=sua_senha;Data Source=seu_oracle_db"
+  }
+}
+```
+
+Rodar as Migrações:
+
+```bash[Uploading TáLigado API.postman_collection.json…]()
+
+dotnet ef database update
+```
+
+Rodar a Aplicação:
+
+```bash
+dotnet build
+dotnet run
+```
+Acessar a Documentação acesse a interface do Swagger para testar os endpoints:
+
+```bash
+http://localhost:<porta>/swagger/index.html
+```
+
 ### Integrantes do grupo
 <table>
   <tr>
